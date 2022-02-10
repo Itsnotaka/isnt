@@ -1,40 +1,14 @@
-import Head from 'next/head';
-import { ReactNode } from 'react';
-import Header from '../components/Header';
+import React from 'react';
 
-export default function Layout({ children }: { children: ReactNode }) {
+export default function Layout({ children }: { children: React.ReactNode }) {
 	return (
 		<>
-			<Head>
-				<title>With Iron Session</title>
-			</Head>
-			<style jsx global>{`
-        *,
-        *::before,
-        *::after {
-          box-sizing: border-box;
-        }
-
-        body {
-          margin: 0;
-          color: #333;
-          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-            'Helvetica Neue', Arial, Noto Sans, sans-serif, 'Apple Color Emoji',
-            'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-        }
-
-        .container {
-          max-width: 65rem;
-          margin: 1.5rem auto;
-          padding-left: 1rem;
-          padding-right: 1rem;
-        }
-      `}</style>
-			<Header />
-
-			<main>
-				<div className="container">{children}</div>
-			</main>
+			<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+				{/* We've used 3xl here, but feel free to try other max-widths based on your needs */}
+				<div className="mx-auto flex h-screen max-w-3xl items-center justify-center">
+					{children}
+				</div>
+			</div>
 		</>
 	);
 }

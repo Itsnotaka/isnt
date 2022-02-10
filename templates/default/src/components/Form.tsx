@@ -1,44 +1,42 @@
 import { FormEvent } from 'react';
+import Button from './Button';
 
 export default function Form({
 	errorMessage,
 	onSubmit,
 }: {
-  errorMessage: string
-  // eslint-disable-next-line no-unused-vars
-  onSubmit: (e: FormEvent<HTMLFormElement>) => void
+	errorMessage: string;
+	// eslint-disable-next-line no-unused-vars
+	onSubmit: (e: FormEvent<HTMLFormElement>) => void;
 }) {
 	return (
 		<form onSubmit={onSubmit}>
-			<label>
-				<span>Type your GitHub username</span>
-				<input type="text" name="username" required />
-			</label>
+			<div className="flex flex-col">
+				<span className="font-semibold dark:text-white">
+					Enter the secret password
+				</span>
+				<div className="relative my-5 flex items-center">
+					<input
+						type="text"
+						name="password"
+						id="password"
+						className="block w-full rounded-md border-gray-300 pr-12 text-black shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+					/>
+					<div className="absolute inset-y-0 right-0 flex py-1.5 pr-1.5">
+						<kbd className="inline-flex items-center rounded border border-gray-200 px-2 font-sans text-sm font-medium text-gray-400">
+							Enter ↵
+						</kbd>
+					</div>
+				</div>
 
-			<button type="submit">Login</button>
+				<Button text="Login" />
 
-			{errorMessage && <p className="error">{errorMessage}</p>}
-
-			<style jsx>{`
-        form,
-        label {
-          display: flex;
-          flex-flow: column;
-        }
-        label > span {
-          font-weight: 600;
-        }
-        input {
-          padding: 8px;
-          margin: 0.3rem 0 1rem;
-          border: 1px solid #ccc;
-          border-radius: 4px;
-        }
-        .error {
-          color: brown;
-          margin: 1rem 0 0;
-        }
-      `}</style>
+				{errorMessage && (
+					<p className="my-0 mt-[1rem] mb-0 font-semibold text-pink-300">
+						{errorMessage}
+					</p>
+				)}
+			</div>
 		</form>
 	);
 }

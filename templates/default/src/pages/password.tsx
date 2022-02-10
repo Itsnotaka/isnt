@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import useUser from '../lib/useUser';
+import useUser from '../libs/useUser';
 import Layout from '../components/Layout';
 import Form from '../components/Form';
-import fetchJson, { FetchError } from '../lib/fetchJson';
+import fetchJson, { FetchError } from '../libs/fetchJson';
 
 export default function Login() {
 	// Here we just check if user is already logged in and redirect to profile
 	const { mutateUser } = useUser({
-		redirectTo: '/profile-sg',
+		redirectTo: '/',
 		redirectIfFound: true,
 	});
 
@@ -23,7 +23,7 @@ export default function Login() {
 						event.preventDefault();
 
 						const body = {
-							username: event.currentTarget.username.value,
+							password: event.currentTarget.password.value,
 						};
 
 						try {
@@ -44,15 +44,6 @@ export default function Login() {
 					}}
 				/>
 			</div>
-			<style jsx>{`
-        .login {
-          max-width: 21rem;
-          margin: 0 auto;
-          padding: 1rem;
-          border: 1px solid #ccc;
-          border-radius: 4px;
-        }
-      `}</style>
 		</Layout>
 	);
 }

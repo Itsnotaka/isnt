@@ -1,29 +1,26 @@
 {
-	"name": "isnt",
-	"version": "1.1.0",
-	"private": true,
-	"engines": {
-		"node": ">=14.0.0"
+	"name": "{{name}}",
+	"description": "{{description}}",
+	"version": "1.0.0",
+	"types": "./dist/index.d.ts",
+	"main": "./dist/index.js",
+	"module": "./dist/index.mjs",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/{{github}}/{{name}}"
 	},
-	"license": "MIT",
+	"author": "{{contact}}",
+	"license": "{{license}}",
+	"funding": {
+		"type": "github",
+		"url": "https://github.com/sponsors/{{github}}"
+	},
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
 		"test": "next test",
 		"start": "next start",
 		"lint": "eslint . --fix"
-	},
-	"browserslist": {
-		"production": [
-			">0.2%",
-			"not dead",
-			"not op_mini all"
-		],
-		"development": [
-			"last 1 chrome version",
-			"last 1 firefox version",
-			"last 1 safari version"
-		]
 	},
 	"dependencies": {
 		"@tailwindcss/forms": "^0.4.0",
@@ -48,5 +45,18 @@
 		"prettier-plugin-tailwindcss": "^0.1.7",
 		"tailwindcss": "^3.0.20",
 		"typescript": "^4.4.4"
-	}
+	},
+	"bugs": {
+		"url": "https://github.com/{{github}}/{{name}}/issues"
+	},
+	"homepage": "https://github.com/{{github}}/{{name}}#readme",
+	"files": [
+		"dist",
+		"package.json"
+	],
+	"keywords": [
+		"node",
+		"template"
+	],
+	"packageManager": "yarn@3.1.0"
 }

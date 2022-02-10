@@ -1,63 +1,63 @@
-import React from 'react'
-import Layout from '../components/Layout'
-import { withIronSessionSsr } from 'iron-session/next'
-import { sessionOptions } from '../lib/session'
-import { User } from '../pages/api/user'
+import React from 'react';
+import Layout from '../components/Layout';
+import { withIronSessionSsr } from 'iron-session/next';
+import { sessionOptions } from '../lib/session';
+import { User } from '../pages/api/user';
 
-import { InferGetServerSidePropsType } from 'next'
+import { InferGetServerSidePropsType } from 'next';
 
 export default function SsrProfile({
-  user,
+	user,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
-  return (
-    <Layout>
-      <h1>Your GitHub profile</h1>
-      <h2>
+	return (
+		<Layout>
+			<h1>Your GitHub profile</h1>
+			<h2>
         This page uses{' '}
-        <a href="https://nextjs.org/docs/basic-features/pages#server-side-rendering">
+				<a href="https://nextjs.org/docs/basic-features/pages#server-side-rendering">
           Server-side Rendering (SSR)
-        </a>{' '}
+				</a>{' '}
         and{' '}
-        <a href="https://nextjs.org/docs/basic-features/data-fetching/get-server-side-props">
+				<a href="https://nextjs.org/docs/basic-features/data-fetching/get-server-side-props">
           getServerSideProps
-        </a>
-      </h2>
+				</a>
+			</h2>
 
-      {user?.isLoggedIn && (
-        <>
-          <p style={{ fontStyle: 'italic' }}>
+			{user?.isLoggedIn && (
+				<>
+					<p style={{ fontStyle: 'italic' }}>
             Public data, from{' '}
-            <a href={`https://github.com/${user.login}`}>
+						<a href={`https://github.com/${user.login}`}>
               https://github.com/{user.login}
-            </a>
+						</a>
             , reduced to `login` and `avatar_url`.
-          </p>
-          <pre>{JSON.stringify(user, null, 2)}</pre>
-        </>
-      )}
-    </Layout>
-  )
+					</p>
+					<pre>{JSON.stringify(user, null, 2)}</pre>
+				</>
+			)}
+		</Layout>
+	);
 }
 
-export const getServerSideProps = withIronSessionSsr(async function ({
-  req,
-  res,
-}) {
-  const user = req.session.user
+export const getServerSideProps = withIronSessionSsr(async ({
+	req,
+	res,
+}) => {
+	const {user} = req.session;
 
-  if (user === undefined) {
-    res.setHeader('location', '/login')
-    res.statusCode = 302
-    res.end()
-    return {
-      props: {
-        user: { isLoggedIn: false, login: '', avatarUrl: '' } as User,
-      },
-    }
-  }
+	if (user === undefined) {
+		res.setHeader('location', '/login');
+		res.statusCode = 302;
+		res.end();
+		return {
+			props: {
+				user: { isLoggedIn: false, login: '', avatarUrl: '' } as User,
+			},
+		};
+	}
 
-  return {
-    props: { user: req.session.user },
-  }
+	return {
+		props: { user: req.session.user },
+	};
 },
-sessionOptions)
+sessionOptions);

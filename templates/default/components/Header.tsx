@@ -1,82 +1,82 @@
-import Link from 'next/link'
-import useUser from '../lib/useUser'
-import { useRouter } from 'next/router'
-import Image from 'next/image'
-import fetchJson from '../lib/fetchJson'
+import Link from 'next/link';
+import useUser from '../lib/useUser';
+import { useRouter } from 'next/router';
+import Image from 'next/image';
+import fetchJson from '../lib/fetchJson';
 
 export default function Header() {
-  const { user, mutateUser } = useUser()
-  const router = useRouter()
+	const { user, mutateUser } = useUser();
+	const router = useRouter();
 
-  return (
-    <header>
-      <nav>
-        <ul>
-          <li>
-            <Link href="/">
-              <a>Home</a>
-            </Link>
-          </li>
-          {user?.isLoggedIn === false && (
-            <li>
-              <Link href="/login">
-                <a>Login</a>
-              </Link>
-            </li>
-          )}
-          {user?.isLoggedIn === true && (
-            <>
-              <li>
-                <Link href="/profile-sg">
-                  <a>
-                    <span
-                      style={{
-                        marginRight: '.3em',
-                        verticalAlign: 'middle',
-                        borderRadius: '100%',
-                        overflow: 'hidden',
-                      }}
-                    >
-                    </span>
+	return (
+		<header>
+			<nav>
+				<ul>
+					<li>
+						<Link href="/">
+							<a>Home</a>
+						</Link>
+					</li>
+					{user?.isLoggedIn === false && (
+						<li>
+							<Link href="/login">
+								<a>Login</a>
+							</Link>
+						</li>
+					)}
+					{user?.isLoggedIn === true && (
+						<>
+							<li>
+								<Link href="/profile-sg">
+									<a>
+										<span
+											style={{
+												marginRight: '.3em',
+												verticalAlign: 'middle',
+												borderRadius: '100%',
+												overflow: 'hidden',
+											}}
+										>
+										</span>
                     Profile (Static Generation, recommended)
-                  </a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/profile-ssr">
-                  <a>Profile (Server-side Rendering)</a>
-                </Link>
-              </li>
-              <li>
-                <a
-                  href="/api/logout"
-                  onClick={async (e) => {
-                    e.preventDefault()
-                    mutateUser(
-                      await fetchJson('/api/logout', { method: 'POST' }),
-                      false
-                    )
-                    router.push('/login')
-                  }}
-                >
+									</a>
+								</Link>
+							</li>
+							<li>
+								<Link href="/profile-ssr">
+									<a>Profile (Server-side Rendering)</a>
+								</Link>
+							</li>
+							<li>
+								<a
+									href="/api/logout"
+									onClick={async e => {
+										e.preventDefault();
+										mutateUser(
+											await fetchJson('/api/logout', { method: 'POST' }),
+											false,
+										);
+										router.push('/login');
+									}}
+								>
                   Logout
-                </a>
-              </li>
-            </>
-          )}
-          <li>
-            <a href="https://github.com/vvo/iron-session">
-              <Image
-                src="/GitHub-Mark-Light-32px.png"
-                width="32"
-                height="32"
-                alt=""
-              />
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <style jsx>{`
+								</a>
+							</li>
+						</>
+					)}
+					<li>
+						<a href="https://github.com/vvo/iron-session">
+							<Image
+								src="/GitHub-Mark-Light-32px.png"
+								width="32"
+								height="32"
+								alt=""
+							/>
+						</a>
+					</li>
+				</ul>
+			</nav>
+			<style jsx>{`
         ul {
           display: flex;
           list-style: none;
@@ -110,6 +110,6 @@ export default function Header() {
           background-color: #333;
         }
       `}</style>
-    </header>
-  )
+		</header>
+	);
 }

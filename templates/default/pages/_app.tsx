@@ -1,14 +1,14 @@
-import { AppProps } from "next/app";
-import React from "react";
-import { SWRConfig } from "swr";
-import fetchJson from "../lib/fetchJson";
+import { AppProps } from 'next/app';
+import React from 'react';
+import { SWRConfig } from 'swr';
+import fetchJson from '../lib/fetchJson';
 
 function MyApp({ Component, pageProps }: AppProps) {
 	return (
 		<SWRConfig
 			value={{
 				fetcher: fetchJson,
-				onError: (err) => {
+				onError: err => {
 					console.error(err);
 				},
 			}}

@@ -5,6 +5,7 @@ export default function Form({
 	onSubmit,
 }: {
   errorMessage: string
+  // eslint-disable-next-line no-unused-vars
   onSubmit: (e: FormEvent<HTMLFormElement>) => void
 }) {
 	return (

@@ -18,6 +18,7 @@ export default function Login() {
 			<div className="login">
 				<Form
 					errorMessage={errorMsg}
+					// eslint-disable-next-line func-names
 					onSubmit={async function handleSubmit(event) {
 						event.preventDefault();
 

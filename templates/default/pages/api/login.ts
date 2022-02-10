@@ -1,26 +1,35 @@
 import type { User } from './user';
-
-import { Octokit } from 'octokit';
 import { withIronSessionApiRoute } from 'iron-session/next';
 import { sessionOptions } from '../../lib/session';
 import { NextApiRequest, NextApiResponse } from 'next';
-const octokit = new Octokit();
 
 export default withIronSessionApiRoute(loginRoute, sessionOptions);
 
 async function loginRoute(req: NextApiRequest, res: NextApiResponse) {
-	const { username } = await req.body;
+	const { password }: { password: string } = await req.body;
 
-	try {
-		const {
-			data: { login, avatar_url },
-		} = await octokit.rest.users.getByUsername({ username });
+	const errorMessageList = [
+		'Oops! Password Incorrect!',
+		'Do better la!',
+		'You are a FAILURE!',
+		'You\'re not a real user!!!',
+		'WHO ARE YOU??!?!?!',
+		'EMOTIONAL DAMAGE!!!',
+		'I don\'t know you!',
+		'HOW DID YOU GET HERE?!?!?!',
+		'I will send u to jesus',
+	];
 
-		const user = { isLoggedIn: true, login, avatarUrl: avatar_url } as User;
-		req.session.user = user;
-		await req.session.save();
-		res.json(user);
-	} catch (error) {
-		res.status(500).json({ message: (error as Error).message });
+	if (password.toLowerCase() !== process.env.KEYWORD) {
+		res.status(500).json({
+			message:
+				errorMessageList[Math.floor(Math.random() * errorMessageList.length)],
+		});
+		return;
 	}
+
+	const user = { isLoggedIn: true } as User;
+	req.session.user = user;
+	await req.session.save();
+	res.json(user);
 }

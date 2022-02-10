@@ -31,7 +31,7 @@ export default function Header() {
 									<a>
 										<span
 											style={{
-												marginRight: '.3em',
+												marginRight: '0.3em',
 												verticalAlign: 'middle',
 												borderRadius: '100%',
 												overflow: 'hidden',

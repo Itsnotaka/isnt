@@ -9,6 +9,8 @@
 /coverage
 .history
 .dist
+.vscode 
+
 # next.js
 /.next/
 /out/

@@ -1,7 +1,7 @@
 {
 	"name": "create-isnt",
 	"description": "🚀A template with ESLint, Prettier & TypeScript built in. Powered by esbuild.",
-	"version": "1.0.1",
+	"version": "1.0.3",
 	"author": "Min Chun Fu <hi@kakaka.dev>",
 	"scripts": {
 		"build": "tsup src/cli.ts --minify",

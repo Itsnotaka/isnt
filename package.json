@@ -1,6 +1,6 @@
 {
 	"name": "isnt",
-	"description": "🚀 A clean next.js template that utilize tailwind CSS + Iron Session for local cookie authentication. Isnt stands for Iron+Session+Nextjs+Typescript",
+	"description": "🚀 A clean next.js template that utilize tailwind CSS + Iron Session for local cookie authentication. Isnt stands for Iron-Session-Next-Tailwind",
 	"version": "1.1.1",
 	"author": "Min Chun Fu <hi@kakaka.dev>",
 	"scripts": {

@@ -2,7 +2,7 @@
 
 isnt (stands for `Iron-Session-Next-Tailwind`) is a local cookie auth template built on top on [Next.js](https://nextjs.org/);
 
-I find the given example within the [Iron-Session-Example](https://github.com/vvo/iron-session/tree/main/examples/next.js-typescript) kind of hard to understand at the start with a couple features that seems to be a little too much as a template.
+I find the given example within the [Iron-Session-Example](https://github.com/vvo/iron-session/tree/main/examples/next.js-typescript) kind of hard to understand at the start and there are features that seems to be a little too much as a template.
 
 # Documentation
 

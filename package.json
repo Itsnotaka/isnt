@@ -1,25 +1,38 @@
 {
-	"name": "create-isnt",
+	"name": "isnt",
 	"description": "🚀 A clean next.js template that utilize tailwind CSS + Iron Session for local cookie authentication. Isnt stands for Iron+Session+Nextjs+Typescript",
 	"version": "1.1.1",
 	"author": "Min Chun Fu <hi@kakaka.dev>",
 	"scripts": {
-		"build": "tsup src/cli.ts --minify",
-		"clean": "rm -rf lib",
-		"dev": "tsup src/cli.ts --watch",
-		"prepublishOnly": "npm run clean && npm run build"
+		"dev": "next dev",
+		"build": "next build",
+		"test": "next test",
+		"start": "next start",
+		"lint": "eslint . --fix"
 	},
-	"bin": "dist/cli.js",
-	"files": [
-		"dist",
-		"templates"
-	],
 	"dependencies": {
-		"create-create-app": "^7.0.0"
+		"@tailwindcss/forms": "^0.4.0",
+		"@tailwindcss/typography": "^0.5.1",
+		"create-create-app": "^7.1.0",
+		"iron-session": "latest",
+		"next": "latest",
+		"next-themes": "^0.0.15",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"swr": "^1.0.1"
 	},
 	"devDependencies": {
-		"tsup": "^4.6.1",
-		"typescript": "^4.2.3"
+		"@types/react": "^17.0.34",
+		"@typescript-eslint/eslint-plugin": "^5.11.0",
+		"@typescript-eslint/parser": "^5.11.0",
+		"autoprefixer": "^10.4.2",
+		"eslint": "^8.8.0",
+		"eslint-config-next": "^12.0.10",
+		"postcss": "^8.4.6",
+		"prettier": "^2.5.1",
+		"prettier-plugin-tailwindcss": "^0.1.7",
+		"tailwindcss": "^3.0.20",
+		"typescript": "^4.4.4"
 	},
-	"license": "MIT"
+	"packageManager": "yarn@3.1.0"
 }

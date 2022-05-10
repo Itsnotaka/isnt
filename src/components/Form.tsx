@@ -13,7 +13,7 @@ export default function Form({
 		<form onSubmit={onSubmit}>
 			<div className="flex flex-col">
 				<span className="font-semibold dark:text-white">
-					Enter the secret password
+					Enter the secret password (spell out the word "password")
 				</span>
 				<div className="relative my-5 flex items-center">
 					<input

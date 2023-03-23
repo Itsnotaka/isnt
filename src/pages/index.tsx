@@ -1,3 +1,4 @@
+import * as React from "react";
 import { InferGetServerSidePropsType } from "next";
 import Head from "next/head";
 import { withIronSessionSsr } from "iron-session/next";

@@ -1,7 +1,7 @@
 import * as React from "react";
 
-import Form from "../components/Form";
 import Layout from "../components/Layout";
+import { Form } from "../components/ui";
 import fetchJson, { FetchError } from "../libs/fetchJson";
 import useUser from "../libs/useUser";
 

@@ -25,7 +25,7 @@ export default function Home({
       <Layout>
         <div className="flex h-screen items-center justify-center font-bold">
           <span>
-            {`This project was started at February 10th, that's ${differentDays} 
+            {`This project was started at February 10th 2022, that's ${differentDays} 
 						${differentDays === 1 ? "day" : "days"} before today.`}
           </span>
         </div>

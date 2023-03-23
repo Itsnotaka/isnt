@@ -19,10 +19,10 @@ export default function Form({
 						type="text"
 						name="password"
 						id="password"
-						className="block w-full rounded-md border-gray-300 pr-12 text-black shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+						className="block border w-full rounded-md border-gray-300 py-2 px-3 text-black shadow-md focus:outline-none sm:text-sm"
 					/>
-					<div className="absolute inset-y-0 right-0 flex py-1.5 pr-1.5">
-						<kbd className="inline-flex items-center rounded border border-gray-200 px-2 font-sans text-sm font-medium text-gray-400">
+					<div className="absolute inset-y-0 right-0 flex p-1">
+						<kbd className="inline-flex items-center rounded border border-opacity-50 border-gray-200 p-2 px-2 font-sans text-sm font-medium text-gray-400">
 							Enter ↵
 						</kbd>
 					</div>

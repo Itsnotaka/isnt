@@ -18,8 +18,8 @@ const Form = ({
           {`Enter the secret password (spell out the word "password")`}
         </span>
         <div className="grid w-full max-w-sm items-center gap-1.5">
-          <Label htmlFor="email">Email</Label>
-          <Input type="email" id="email" placeholder="Email" />
+          <Label htmlFor="password">Password</Label>
+          <Input type="password" id="password" placeholder="Password" />
         </div>
         <Button variant="outline">Button</Button>
 

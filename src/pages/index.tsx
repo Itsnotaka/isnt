@@ -9,10 +9,10 @@ import { User } from "./api/user";
 
 // Server-side generation page example
 
-export default function Home({
+const Home = ({
   // eslint-disable-next-line no-unused-vars
   user,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const firstDate = new Date("2/10/2022");
   const secondDate = new Date();
   const timeDifference = Math.abs(secondDate.getTime() - firstDate.getTime());
@@ -33,7 +33,7 @@ export default function Home({
       </Layout>
     </>
   );
-}
+};
 
 // eslint-disable-next-line prefer-arrow-callback
 export const getServerSideProps = withIronSessionSsr(async function ({
@@ -58,3 +58,5 @@ export const getServerSideProps = withIronSessionSsr(async function ({
   };
 },
 sessionOptions);
+
+export default Home;

@@ -5,7 +5,7 @@ import { Form } from "../components/ui";
 import fetchJson, { FetchError } from "../libs/fetchJson";
 import useUser from "../libs/useUser";
 
-export default function Login() {
+const Login = () => {
   // Here we just check if user is already logged in and redirect to profile
   const { mutateUser } = useUser({
     redirectTo: "/",
@@ -13,6 +13,30 @@ export default function Login() {
   });
 
   const [errorMsg, setErrorMsg] = React.useState("");
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+    const body = {
+      password: (event.target as any).password.value,
+    };
+
+    try {
+      mutateUser(
+        await fetchJson("/api/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(body),
+        }),
+      );
+    } catch (error) {
+      if (error instanceof FetchError) {
+        setErrorMsg(error.data.message);
+      } else {
+        console.error("An unexpected error happened:", error);
+      }
+    }
+  };
 
   return (
     <Layout>
@@ -20,33 +44,11 @@ export default function Login() {
         <Form
           errorMessage={errorMsg}
           // eslint-disable-next-line func-names
-          onSubmit={async function handleSubmit(event) {
-            event.preventDefault();
-
-            const body = {
-              password: event.currentTarget.password.value,
-            };
-
-            try {
-              mutateUser(
-                await fetchJson("/api/login", {
-                  method: "POST",
-                  headers: {
-                    "Content-Type": "application/json",
-                  },
-                  body: JSON.stringify(body),
-                }),
-              );
-            } catch (error) {
-              if (error instanceof FetchError) {
-                setErrorMsg(error.data.message);
-              } else {
-                console.error("An unexpected error happened:", error);
-              }
-            }
-          }}
+          onSubmit={handleSubmit}
         />
       </div>
     </Layout>
   );
-}
+};
+
+export default Login;

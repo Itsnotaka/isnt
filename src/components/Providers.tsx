@@ -1,9 +1,8 @@
-import React from 'react';
 import { ThemeProvider } from 'next-themes';
 import fetchJson from '../libs/fetchJson';
 import { SWRConfig } from 'swr';
 
-const WithProviders: React.FC = ({ children }) => (
+const WithProviders = ({ children }: { children: React.ReactNode }) => (
 	<ThemeProvider attribute="class">
 		<SWRConfig
 			value={{

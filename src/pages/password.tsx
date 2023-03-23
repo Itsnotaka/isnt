@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import * as React from 'react';
 import useUser from '../libs/useUser';
 import Layout from '../components/Layout';
 import Form from '../components/Form';
@@ -11,7 +11,7 @@ export default function Login() {
 		redirectIfFound: true,
 	});
 
-	const [errorMsg, setErrorMsg] = useState('');
+	const [errorMsg, setErrorMsg] = React.useState('');
 
 	return (
 		<Layout>

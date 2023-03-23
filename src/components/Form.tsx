@@ -1,4 +1,3 @@
-import { FormEvent } from 'react';
 import Button from './Button';
 
 export default function Form({
@@ -7,7 +6,7 @@ export default function Form({
 }: {
 	errorMessage: string;
 	// eslint-disable-next-line no-unused-vars
-	onSubmit: (e: FormEvent<HTMLFormElement>) => void;
+	onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 }) {
 	return (
 		<form onSubmit={onSubmit}>

@@ -14,13 +14,18 @@
 	"dependencies": {
 		"@tailwindcss/forms": "^0.5.3",
 		"@tailwindcss/typography": "^0.5.9",
+		"class-variance-authority": "^0.4.0",
+		"clsx": "^1.2.1",
 		"create-create-app": "^7.3.0",
 		"iron-session": "^6.3.1",
+		"lucide-react": "^0.127.0",
 		"next": "^13.2.4",
 		"next-themes": "^0.2.1",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
-		"swr": "^2.1.1"
+		"swr": "^2.1.1",
+		"tailwind-merge": "^1.10.0",
+		"tailwindcss-animate": "^1.0.5"
 	},
 	"devDependencies": {
 		"@types/react": "^18.0.28",

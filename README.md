@@ -17,8 +17,8 @@ Please see [iron-session](https://github.com/vvo/iron-session).
 ```ts
 git clone https://github.com/Itsnotaka/isnt.git
 cd isnt
-yarn
-yarn dev 
+pnpm install
+pnpm dev
 ```
 
 and start developing!
